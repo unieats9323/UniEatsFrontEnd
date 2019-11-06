@@ -1,0 +1,32 @@
+{
+    "restaurants": [
+        {
+            "id": "5",
+            "name": "Subway",
+            "image": "https://s3.studentvip.com.au/photos/subway-174984-small.jpg",
+            "type": "Freshly Made Sandwiches",
+            "location": "Upper campus"
+        },
+        {
+            "id": "6",
+            "name": "Boost Juice",
+            "image": "https://www.insideretail.com.au/wp-content/uploads/2013/07/Resource1.jpg",
+            "type": "Freshly Made Juices And Smoothies",
+            "location": "Upper campus"
+        },
+        {
+            "id": "7",
+            "name": "Guzman Y Gomez",
+            "image": "https://www.pedestrian.tv/content/uploads/2018/08/guzman-636x397.jpeg",
+            "type": "Mexican Burritos, Tacos And Salads",
+            "location": "Lower campus"
+        },
+        {
+            "id": "8",
+            "name": "Coco Cubano",
+            "image": "https://media-cdn.tripadvisor.com/media/photo-s/13/30/78/bb/coco-cubano.jpg",
+            "type": "Cuban Tapas And Wine Bar",
+            "location": "Lower campus"
+        }
+    ]
+}
