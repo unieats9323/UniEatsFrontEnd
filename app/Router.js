@@ -7,7 +7,7 @@ import Menu from './containers/Menu/Menu'
 import Cart from './containers/Cart/Cart'
 
 const Router = createStackNavigator({
-    Cart: {screen:  Cart},
+    //Cart: {screen:  Cart},
     Home: {screen: Restaurants},
     Menu: {screen: Menu},
 }, {

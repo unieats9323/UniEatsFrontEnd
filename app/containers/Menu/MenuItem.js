@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { Avatar, Badge, Icon } from 'react-native-elements'
 import colors from 'assets/colors'
-import store from '../../store/store'
+import store from '../../store/Store'
 
 
 
@@ -64,8 +64,8 @@ export default class MenuItem extends Component {
 
     addItem(item) {
         console.log('yellow')
-        console.log(item)
-        store.dispatch({type: 'ADD_ITEM_TO_CART', payload: {item}})
+        //console.log(item)
+        store.dispatch({type: 'ADD_ITEM_TO_CART', payload: item})
     }
     removeItem(item) {
 

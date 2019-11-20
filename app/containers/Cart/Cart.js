@@ -9,7 +9,7 @@ import {
 import RestaurantItem from '../Restaurants/RestaurantItem';
 import services from 'library/services/services';
 import CartItem from './CartItem';
-import store from '../../store/store'
+import store from '../../store/Store'
 
 const cart = store.getState().cart;
 
