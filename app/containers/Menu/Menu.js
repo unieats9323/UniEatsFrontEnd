@@ -60,7 +60,7 @@ export default class Menu extends Component {
                         </View>                          
                     </View> 
                 </View> 
-                <Text style={styles.menuHeading}> Menu</Text> 
+                <Text style={styles.menuHeading}> MENU</Text> 
                 {this.state.data.menu.map((item, index) => {
                         return (
                             <MenuItem
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         padding: 10,
         margin: 10,
+        textTransform: 'uppercase'
     },
     search: {
         padding: 10,

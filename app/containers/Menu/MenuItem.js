@@ -8,8 +8,8 @@ import {
 } from 'react-native'
 import { Avatar, Badge, Icon } from 'react-native-elements'
 import colors from 'assets/colors'
-import store from '../../store/store'
-
+import store from '../../store/Store'
+import Price from 'library/components/Price'
 
 
 export default class MenuItem extends Component {
@@ -31,30 +31,23 @@ export default class MenuItem extends Component {
                         value="2"
                     />
                 </View>
-                {/* <Image
-                    style={styles.image}
-                    source={{uri: this.props.image}}>                            
-                </Image> */}
                 <View style={styles.details}>
-                  
-                        <Text style={styles.title}>{this.props.name}</Text>
-
-                        <Text style={styles.price}>${this.props.price}</Text>
-                        <View styles={styles.button} style={[{ width: "75%", margin: 10, backgroundColor: "#FEC102" }]}>
+                    <Text style={styles.title}>{this.props.name}</Text>
+                    <View style={styles.secondRow}>
+                        <Price 
+                            price={this.props.price}
+                            style={styles.price}/>
+                        
+                        <View styles={styles.button} style={[{ width: "40%", margin: 10, backgroundColor: "#FEC102" }]}>
 
                         <Button
                             color="black"
-                            title="Add Item"
+                            title="ADD"
                             onPress={() => this.addItem(this.props.item)}
                             />
-                            </View>
-                    {/* </View>
-                    <View style={styles.cartDetails}> 
-                        <Icon style={styles.modify} name="remove"></Icon>
-                        <Text style={styles.title}>0</Text>
-                        <Icon style={styles.modify} name="add"></Icon>
-                    </View>*/}
-                  
+                        </View>  
+                    </View>
+                    
                 </View>  
              
             </View>   
@@ -63,9 +56,7 @@ export default class MenuItem extends Component {
     }
 
     addItem(item) {
-        console.log('yellow')
-        console.log(item)
-        store.dispatch({type: 'ADD_ITEM_TO_CART', payload: {item}})
+        store.dispatch({type: 'ADD_ITEM_TO_CART', payload: item})
     }
     removeItem(item) {
 
@@ -97,31 +88,34 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
  
     },
+    secondRow: {
+        flex: 3,
+        flexDirection: 'row'
+    },
     title: {
         flex: 2,
-        fontSize: 20,
+        fontSize: 16,
         paddingLeft: 15,
         paddingRight: 15,
         letterSpacing: 2,
         fontFamily: 'System',
         marginTop: 10,
         flexWrap: 'wrap',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        textTransform: 'uppercase',
+        fontWeight: 'bold'
     },
     price: {
         flex:1,
-        paddingTop: 0,
-        fontSize: 18,
         paddingLeft: 15,
-        fontWeight: '100',
-        fontWeight: 'bold'
+        margin: 50,
     },
     button: {        
-        flex: 2,
+        flex: 1,
         paddingBottom: 20,
         backgroundColor: colors.app_yellow,
       
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-end'
     }
     
    
