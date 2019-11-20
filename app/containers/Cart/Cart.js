@@ -11,7 +11,7 @@ import services from 'library/services/services';
 import CartItem from './CartItem';
 import store from '../../store/Store'
 
-const cart = store.getState().cart;
+const cart = store.getState().menu;
 
 export default class Cart extends Component {
   
@@ -43,7 +43,7 @@ export default class Cart extends Component {
         return (
             <View style={styles.container}>      
                 <FlatList               
-                    data={cart.menu}
+                    data={cart.cart_items}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
                 />       

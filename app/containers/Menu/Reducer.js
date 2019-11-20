@@ -34,7 +34,7 @@ export default (state = initState, action) => {
             addedItem = action.payload
             let existingItem = state.cart_items.find(item => item.id === addedItem.id)
             if (existingItem){
-                addedItem = existingItems
+                addedItem = existingItem
                 addedItem.qty += 1
                 console.log(state)
                 return{...state}
@@ -42,7 +42,7 @@ export default (state = initState, action) => {
             else {
                 addedItem.qty = 1
                 return {...state, cart_items: [...state.cart_items, addedItem]}
-            }
+            } 
         default:
             return state
     }

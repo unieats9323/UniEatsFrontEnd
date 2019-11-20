@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         fontFamily: 'System',
         letterSpacing: 3,
         textTransform: 'uppercase',
-        color: '#FEC102',
+        color: 'black',
         //marginTop: 10,
         // flex:1
     },
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         fontFamily: 'System',
         letterSpacing: 1,
         textTransform: 'uppercase',
-        color: '#FEC102',
+        color: 'black',
         //marginTop: 10,
         //flex:1
     }
