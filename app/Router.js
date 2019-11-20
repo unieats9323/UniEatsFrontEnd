@@ -1,13 +1,16 @@
-import { createStackNavigator } from 'react-navigation-stack'
+import {createStackNavigator} from 'react-navigation-stack'
 import {createAppContainer} from 'react-navigation';
 
 
 import Restaurants from './containers/Restaurants/Restaurants'
 import Menu from './containers/Menu/Menu'
 import Cart from './containers/Cart/Cart'
-
+import ProfileSwitcher from './containers/ProfileSwitcher'
+import TestScreen from "./containers/testScreen";
 const Router = createStackNavigator({
-    Cart: {screen:  Cart},
+    Profile: {screen: ProfileSwitcher},
+    BottomNavigation : {screen: TestScreen},
+    Cart: {screen: Cart},
     Home: {screen: Restaurants},
     Menu: {screen: Menu},
 }, {
