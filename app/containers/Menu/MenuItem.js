@@ -8,7 +8,6 @@ import {
 } from 'react-native'
 import { Avatar, Badge, Icon } from 'react-native-elements'
 import colors from 'assets/colors'
-import store from '../../store/Store'
 import Price from 'library/components/Price'
 
 
@@ -55,13 +54,7 @@ export default class MenuItem extends Component {
         );
     }
 
-    addItem(item) {
-        store.dispatch({type: 'ADD_ITEM_TO_CART', payload: item})
-    }
-    removeItem(item) {
 
-    }
-    
 }
 
 

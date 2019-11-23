@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 
 import RestaurantItem from './RestaurantItem';
-import services from 'library/services/services'
+import services from 'library/services/services';
 import { Icon } from 'react-native-elements'
 
 

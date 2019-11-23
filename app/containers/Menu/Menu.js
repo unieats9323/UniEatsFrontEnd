@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 
 import MenuItem from './MenuItem';
-import services from 'library/services/services'
+import services from '../../library/services/services'
 import { Icon } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
 
