@@ -4,6 +4,8 @@ import {
     View,
 } from 'react-native'
 import {Icon} from 'react-native-elements'
+import { PendingDeliveries } from '../containers/Delivery/PendingDeliveries'
+
 
 export default class ProfileSwitcher extends Component {
 
@@ -25,7 +27,7 @@ export default class ProfileSwitcher extends Component {
                     type='font-awesome'
                     color='#f50'
                     size={50}
-                    onPress={() => navigate('PendingDelivery')}/>
+                    onPress={() => navigate('PendingDeliveries')}/>
                 <Text>I want to deliver food!</Text>
             </View>
         );

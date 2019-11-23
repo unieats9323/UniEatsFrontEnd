@@ -5,14 +5,16 @@ import {createAppContainer} from 'react-navigation';
 import Restaurants from './containers/Restaurants/Restaurants'
 import Menu from './containers/Menu/Menu'
 import ProfileSwitcher from './containers/ProfileSwitcher'
-import PendingDelivery from './containers/Delivery/PendingDelivery'
+import PendingDeliveries from './containers/Delivery/PendingDeliveries'
+import DeliveryDetails from './containers/Delivery/DeliveryDetails'
 
 const Router = createStackNavigator({
     //Cart: {screen:  Cart},
     Profile: {screen: ProfileSwitcher},
     Home: {screen: Restaurants},
     Menu: {screen: Menu},
-    PendingDelivery: {screen: PendingDelivery}
+    PendingDeliveries: {screen: PendingDeliveries},
+    DeliveryDetails: {screen: DeliveryDetails}
 }, {
     inialRouteName: "Menu"
 });

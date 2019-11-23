@@ -19,6 +19,14 @@ var services = {
             console.log(error)
         })
     },
+    async getDeliveryDetails(id) {
+        const url = API.DELIVERY_API;
+        return this.getNetworkItem(url).then(response => {
+            return response
+        }).catch(error => {
+            console.log(error)
+        })
+    },
     async getNetworkItem(url) {
         return fetch(url,
         {
