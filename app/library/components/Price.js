@@ -33,6 +33,7 @@ export default class Price extends Component {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        padding: 10
     },
     primary: {
         fontSize: 25,

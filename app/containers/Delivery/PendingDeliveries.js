@@ -46,8 +46,11 @@ export default class PendingDelivery extends Component {
                     Restaurants</Text>
                     <Icon style={styles.search} name="search"/>
                 </View> */}
-            
+                <Text style={styles.title}>AVAILABLE ORDERS</Text>
                 <FlatList 
+                    style = {{
+                        margin: 10,
+                    }}
                     data={this.state.data.pending_orders}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
@@ -60,6 +63,7 @@ export default class PendingDelivery extends Component {
 
 
 const styles = StyleSheet.create({
+    
     container: {
       flex: 1,
       justifyContent: 'center',
@@ -71,8 +75,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     title: {
-        flex:1,
-        fontSize: 20,
+      
+        fontSize: 30,
         color: 'black',
         fontWeight: 'bold',
         padding: 10,

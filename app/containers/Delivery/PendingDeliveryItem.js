@@ -3,8 +3,7 @@ import {
     StyleSheet,
     View,
     Text, 
-    Image,
-    ImageBackground,
+    Button,
     TouchableOpacity
 } from 'react-native'
 import { Card, Icon, Rating} from 'react-native-elements'
@@ -12,6 +11,8 @@ import { Menu } from '../Menu/Menu'
 import { PendingDeliveryDetail } from './DeliveryDetails'
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import colors from 'assets/colors'
+import Price from 'library/components/Price'
+
 
 export default class PendingDeliveryItem extends Component {
 
@@ -21,16 +22,39 @@ export default class PendingDeliveryItem extends Component {
     
     render() {
         return(  
-            <TouchableOpacity style={styles.card} key={this.props.order_id}  onPress={() => this.navigateToScreen(this.props.dishes)}>
+            <View>
+                {/* Details */}
+                 <TouchableOpacity style={styles.card} key={this.props.order_id}  onPress={() => this.navigateToScreen(this.props.dishes)}>
                     <View style={styles.innerDetails}>
-                        <Text style={styles.title}>{"Pickup Location"}</Text>
+                        <Text style={styles.title}>{"PICKUP"}</Text>
                         <Text style={styles.subtitle}>{this.props.pickupLocation}</Text>   
-                        <Text style={styles.title}>{"Drop Location"}</Text> 
+                        <Text style={styles.title}>{"DROP"}</Text> 
                         <Text style={styles.subtitle}>{this.props.dropLocation}</Text>
-                        <Text style={styles.title}>{"Total cost"}</Text>                 
-                        <Text style={styles.subtitle}>{"$" + this.props.totalCost}</Text>                    
+                            <View style={styles.lastRow}>
+                                <View style={styles.priceContainer}>
+                                    <Text style={styles.primary}>{this.props.totalCost}</Text>
+                                    <Text style={styles.secondary}>99</Text>
+                                </View>
+
+                                <View style={styles.button}>
+                                    <Button
+                                    color="black"
+                                    title="ACCEPT"
+                                    style={[{
+                                        fontSize: 500,
+                                        fontWeight: "bold"
+                                    }]}
+                                    onPress={() => this.addItem(this.props.item)}
+                                    />
+                                </View>
+                            </View> 
+
                     </View>                          
-            </TouchableOpacity>    
+                </TouchableOpacity>   
+                {/* Button */}
+              
+            </View>
+            
         );
     }
 }
@@ -70,25 +94,71 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
 
     },
-    subtitle: {
-        fontSize: 15,
-        paddingLeft: 16,
-        paddingRight: 0,
-        paddingTop: 10,
-        paddingBottom: 20,
-        fontWeight: '300',
-        fontFamily: 'System',
-        letterSpacing: 3,
-        color: 'black',
-    }  ,
     title: {
         fontSize: 12,
-        paddingLeft: 8,
-        paddingRight: 0,
-        fontWeight: 'bold',
+        paddingLeft: 10,
+        paddingTop: 10,
+        fontWeight: "500",
         fontFamily: 'System',
         textTransform: 'uppercase',
+        
         letterSpacing: 3,
         color: 'black',
-    }  
+    },
+    subtitle: {
+        fontSize: 25,
+        paddingLeft: 10,
+        paddingBottom: 10,
+        fontWeight: '600',
+        fontFamily: 'System',
+        textTransform: 'uppercase',
+
+        letterSpacing: 3,
+        color: 'black',
+    },     
+
+
+
+       
+    priceContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        padding: 10
+    },
+    primary: {
+        fontSize: 40,
+        fontWeight: '500',
+        fontFamily: 'System',
+        letterSpacing: 3,
+        textTransform: 'uppercase',
+        color: 'black',
+    },
+    secondary: {
+        fontSize: 25, 
+        paddingRight: 15,
+        alignSelf: 'flex-start',
+        fontWeight: '500',
+        fontFamily: 'System',
+        letterSpacing: 1,
+        textTransform: 'uppercase',
+        color: 'black',
+       
+    },
+    lastRow: { 
+     
+        flexDirection: 'row'
+    },
+    button: {
+        flex: 1,
+        alignSelf: "flex-end",
+        backgroundColor: "#63A563",
+        margin: 10
+    }
+
+    
+    
+});
+
+const price_styles = StyleSheet.create({
+   
 });
