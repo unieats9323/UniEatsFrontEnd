@@ -14,6 +14,8 @@ var services = {
     async getMenu(id) {
         const url = API.MENU_API + id;
         return this.getNetworkItem(url).then(response => {
+            console.log(url)
+            console.log(response)
             return response
         }).catch(error => {
             console.log(error)

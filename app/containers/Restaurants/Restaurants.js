@@ -31,6 +31,7 @@ export default class Restaurants extends Component {
 
     _renderItem = ({item}) => (
         <RestaurantItem
+            restaurant = {item}
             restaurant_id={item.Restaurant_Id}
             name={item.Restaurant_Name}
             image={item.Image_URL}

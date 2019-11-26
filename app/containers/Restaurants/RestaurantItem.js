@@ -17,7 +17,7 @@ export default class RestaurantItem extends Component {
     render() {
         return(
 
-            <TouchableOpacity style={styles.card} key={this.props.id}  onPress={() => this.props.navigation.navigate('Menu' , {restaurantId : this.props.restaurant_id})}>
+            <TouchableOpacity style={styles.card} key={this.props.id}  onPress={() => this.props.navigation.navigate('Menu' , {restaurant : this.props.restaurant})}>
                 <Image
                     style={styles.image}
                     source={{uri: this.props.image}}>                            

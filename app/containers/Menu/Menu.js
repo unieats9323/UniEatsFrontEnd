@@ -18,24 +18,23 @@ export default class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            restaurantId: this.props.navigation.state.params.restaurantId,
-            data: {
-                "restaurant": {},
-                "menu": []
-            }
+                restaurant: this.props.navigation.state.params.restaurant,
+                menu: []
         }
     }
 
     componentDidMount() {
-        services.getMenu(this.state.restaurantId).then(response => {
+        // console.log('++++++ Payload',this.state.data.restaurant);
+        services.getMenu(this.state.restaurant.Restaurant_Id).then(response => {
             this.setState({
-                data: response
-            })
+                menu : response
+
+            });
+            console.log(data)
         })
     }
 
     _renderItem = ({item}) => (
-        console.log('------', this.props.image),
         <MenuItem
             dishId={item.Dish_Id}
             name={item.Dish_Name}
@@ -52,17 +51,17 @@ export default class Menu extends Component {
                 <View style={styles.card}>
                     <Image
                         style={styles.image}
-                        source={{uri: this.state.data.restaurant.image}}>
+                        source={{uri: this.state.restaurant.Image_URL}}>
                     </Image>
                     <View style={styles.details}>
                         <View style={styles.innerDetails}>
-                            <Text style={styles.title}>{this.state.data.restaurant.name}</Text>
-                            <Text style={styles.type}>{this.state.data.restaurant.type}</Text>
+                            <Text style={styles.title}>{this.state.restaurant.Restaurant_Name}</Text>
+                            <Text style={styles.type}>{this.state.restaurant.Summary}</Text>
                         </View>
                     </View>
                 </View>
                 <Text style={styles.menuHeading}> MENU</Text>
-                {this.state.data.menu.map((item, index) => {
+                {this.state.menu.map((item, index) => {
                     return (
                         <MenuItem
                             dishId={item.Dish_Id}
@@ -73,11 +72,11 @@ export default class Menu extends Component {
                     )
                 })}
 
-                { <ScrollView
+                { /*<ScrollView
                     data={this.state.data.menu}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
-                />  }
+                />*/  }
             </ScrollView>
 
         );
@@ -101,14 +100,6 @@ const styles = StyleSheet.create({
         paddingLeft: 40,
         fontSize: 30,
         fontWeight: 'bold'
-    },
-    title: {
-        flex: 1,
-        fontSize: 20,
-        fontWeight: 'bold',
-        padding: 10,
-        margin: 10,
-        textTransform: 'uppercase'
     },
     search: {
         padding: 10,
