@@ -44,7 +44,7 @@ export default class PendingDeliveryItem extends Component {
                                         fontSize: 500,
                                         fontWeight: "bold"
                                     }]}
-                                    onPress={() => this.addItem(this.props.item)}
+                                    onPress={() => this.props.navigation.navigate('DeliveryDetails',{order_id : this.props.totalCost})}
                                     />
                                 </View>
                             </View> 

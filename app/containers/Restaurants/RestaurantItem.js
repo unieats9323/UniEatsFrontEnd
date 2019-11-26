@@ -13,9 +13,11 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import colors from 'assets/colors'
  
 export default class RestaurantItem extends Component {
+
     render() {
-        return(  
-            <TouchableOpacity style={styles.card} key={this.props.id}  onPress={() => this.props.navigation.navigate('Menu')}>
+        return(
+
+            <TouchableOpacity style={styles.card} key={this.props.id}  onPress={() => this.props.navigation.navigate('Menu' , {restaurantId : this.props.restaurant_id})}>
                 <Image
                     style={styles.image}
                     source={{uri: this.props.image}}>                            

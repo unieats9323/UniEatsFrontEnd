@@ -13,7 +13,8 @@ import Price from 'library/components/Price'
 
 export default class MenuItem extends Component {
     render() {
-        return(  
+        return(
+            console.log('------', this.props.image),
             <View style={styles.card} key={this.props.id}  >
                 <View style={"flex:1"}>
                     <Image

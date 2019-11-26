@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import { 
+import React, {Component} from 'react';
+import {
     StyleSheet,
     Text,
-    View, 
+    View,
     x,
     FlatList
 } from 'react-native'
 
 import RestaurantItem from './RestaurantItem';
 import services from 'library/services/services';
-import { Icon } from 'react-native-elements'
-
+import {Icon} from 'react-native-elements'
 
 
 export default class Restaurants extends Component {
@@ -20,24 +19,26 @@ export default class Restaurants extends Component {
             data: []
         }
     }
-    componentDidMount(){
+
+    componentDidMount() {
         services.getRestaurantList("").then(response => {
             this.setState({
+
                 data: response
             })
-        })            
+        })
     }
-    
+
     _renderItem = ({item}) => (
         <RestaurantItem
-          name={item.name}
-          image={item.image}
-          type={item.type}
-          location={item.location}
-          navigation={this.props.navigation}
-
+            restaurant_id={item.Restaurant_Id}
+            name={item.Restaurant_Name}
+            image={item.Image_URL}
+            type={item.Summary}
+            location={item.Location}
+            navigation={this.props.navigation}
         />
-      )
+    )
 
     _keyExtractor = (item, index) => item.id;
 
@@ -49,32 +50,32 @@ export default class Restaurants extends Component {
                     Restaurants</Text>
                     <Icon style={styles.search} name="search"/>
                 </View> */}
-            
-                <FlatList               
-                    data={this.state.data.restaurants}
+
+                <FlatList
+                    data={this.state.data}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
                 />
-           
-            </View>            
-        );        
+
+            </View>
+        );
     }
 }
 
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      flexDirection: 'column',
-      //alignItems: 'center',
-      //backgroundColor: '#FEC102',
+        flex: 1,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        //alignItems: 'center',
+        //backgroundColor: '#FEC102',
     },
     header: {
         flexDirection: 'row'
     },
     title: {
-        flex:1,
+        flex: 1,
         fontSize: 20,
         color: 'black',
         fontWeight: 'bold',

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { 
+import React, {Component} from 'react';
+import {
     StyleSheet,
     Text,
-    View, 
+    View,
     Image,
     FlatList,
     VirtualizedList
@@ -10,86 +10,87 @@ import {
 
 import MenuItem from './MenuItem';
 import services from '../../library/services/services'
-import { Icon } from 'react-native-elements'
-import { ScrollView } from 'react-native-gesture-handler';
+import {Icon} from 'react-native-elements'
+import {ScrollView} from 'react-native-gesture-handler';
 
 
 export default class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            restaurantId: this.props.navigation.state.params.restaurantId,
             data: {
-                "restaurant": {},              
+                "restaurant": {},
                 "menu": []
             }
         }
     }
-  
-    componentDidMount(){
-        services.getMenu("").then(response => {
-            console.log(response)
+
+    componentDidMount() {
+        services.getMenu(this.state.restaurantId).then(response => {
             this.setState({
                 data: response
             })
-        })            
+        })
     }
-    
-    _renderItem = ({item}) => (  
+
+    _renderItem = ({item}) => (
+        console.log('------', this.props.image),
         <MenuItem
-          name={item.name}
-          image={item.image}
-          price={item.price}
+            dishId={item.Dish_Id}
+            name={item.Dish_Name}
+            image={item.Image_Url}
+            price={item.Price}
         />
-      )
+    )
 
     _keyExtractor = (item, index) => item.id;
 
     render() {
-        console.log('hello')
         return (
             <ScrollView>
-                <View style={styles.card} >
+                <View style={styles.card}>
                     <Image
                         style={styles.image}
-                        source={{uri: this.state.data.restaurant.image}}>                            
+                        source={{uri: this.state.data.restaurant.image}}>
                     </Image>
                     <View style={styles.details}>
                         <View style={styles.innerDetails}>
-                            <Text style={styles.title}>{this.state.data.restaurant.name}</Text>                   
-                            <Text style={styles.type}>{this.state.data.restaurant.type}</Text> 
-                        </View>                          
-                    </View> 
-                </View> 
-                <Text style={styles.menuHeading}> MENU</Text> 
+                            <Text style={styles.title}>{this.state.data.restaurant.name}</Text>
+                            <Text style={styles.type}>{this.state.data.restaurant.type}</Text>
+                        </View>
+                    </View>
+                </View>
+                <Text style={styles.menuHeading}> MENU</Text>
                 {this.state.data.menu.map((item, index) => {
-                        return (
-                            <MenuItem
-                            name={item.name}
-                            image={item.image}
-                            price={item.price}
-                            item={item}
-                          />
-                        )
+                    return (
+                        <MenuItem
+                            dishId={item.Dish_Id}
+                            name={item.Dish_Name}
+                            image={item.Image_Url}
+                            price={item.Price}
+                        />
+                    )
                 })}
-             
-                    {/* <ScrollView               
+
+                { <ScrollView
                     data={this.state.data.menu}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
-                />  */}
+                />  }
             </ScrollView>
-                   
-        );        
+
+        );
     }
 }
 
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      //alignItems: 'center',
-      backgroundColor: '#FAFAFA',
+        flex: 1,
+        justifyContent: 'center',
+        //alignItems: 'center',
+        backgroundColor: '#FAFAFA',
     },
     header: {
         flexDirection: 'row'
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     title: {
-        flex:1,
+        flex: 1,
         fontSize: 20,
         fontWeight: 'bold',
         padding: 10,
@@ -129,11 +130,11 @@ const styles = StyleSheet.create({
     details: {
         position: 'absolute',
         width: '90%',
-        height: 150,       
+        height: 150,
         alignSelf: 'center',
         backgroundColor: 'rgba(0,0,0,0.8)',
         bottom: 15,
-        margin:5,
+        margin: 5,
         borderRadius: 20,
         overflow: 'hidden',
         flexDirection: 'row'
@@ -167,5 +168,5 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         letterSpacing: 3,
         color: 'white',
-    }  
+    }
 });

@@ -8,9 +8,26 @@ import {
     Button
 } from 'react-native'
 import DishItem from './DishItem';
+import services from 'library/services/services';
 
 export default class DeliveryDetails extends Component {
-    
+
+    constructor(props){
+        super(props);
+        this.state = {
+            orderId : this.props.navigation.state.params.order_id
+        }
+    }
+
+    componentDidMount(){
+        console.log(this.state.orderId);
+        services.getDeliveryDetails(this.state.orderId).then(response => {
+            this.setState({
+                data: response
+            })
+        })
+    }
+
     _renderItem = ({item}) => (
         <DishItem
           name={item.name}
