@@ -31,6 +31,7 @@ export default class PendingDelivery extends Component {
             order = {item}
             orderId={item.Order_Id}
             dishes={item.dishes}
+            restaurantName = {item.Restaurant_name}
             pickupLocation={item.Pickup_Location}
             totalCost={item.Total_Price}
             dropLocation={item.Delivery_Location}

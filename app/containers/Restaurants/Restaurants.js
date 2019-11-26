@@ -23,7 +23,6 @@ export default class Restaurants extends Component {
     componentDidMount() {
         services.getRestaurantList("").then(response => {
             this.setState({
-
                 data: response
             })
         })

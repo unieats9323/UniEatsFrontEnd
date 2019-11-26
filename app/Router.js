@@ -7,6 +7,7 @@ import Menu from './containers/Menu/Menu'
 import ProfileSwitcher from './containers/ProfileSwitcher'
 import PendingDeliveries from './containers/Delivery/PendingDeliveries'
 import DeliveryDetails from './containers/Delivery/DeliveryDetails'
+import Rewards from './containers/Delivery/Rewards'
 
 const Router = createStackNavigator({
     //Cart: {screen:  Cart},
@@ -14,7 +15,8 @@ const Router = createStackNavigator({
     Home: {screen: Restaurants},
     Menu: {screen: Menu},
     PendingDeliveries: {screen: PendingDeliveries},
-    DeliveryDetails: {screen: DeliveryDetails}
+    DeliveryDetails: {screen: DeliveryDetails},
+    Rewards:{screen: Rewards}
 }, {
     inialRouteName: "Menu"
 });

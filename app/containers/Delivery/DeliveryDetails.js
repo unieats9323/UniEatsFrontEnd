@@ -10,6 +10,8 @@ import {
 import DishItem from './DishItem';
 import services from 'library/services/services';
 
+
+
 export default class DeliveryDetails extends Component {
 
     constructor(props){
@@ -19,33 +21,36 @@ export default class DeliveryDetails extends Component {
         }
     }
 
-    // componentDidMount(){
-    //     console.log(this.state.orderId);
-    //     services.getDeliveryDetails(this.state.orderId).then(response => {
-    //         this.setState({
-    //             data: response
-    //         })
-    //     })
-    // }
+
+    componentDidMount(){
+        console.log('Order details +++++ ',this.state.order);
+        var jsonData;
+        jsonData = DeliveryDetails.getJsonData(this.state.order);
+        services.acceptOrders(jsonData)
+    }
+
+    static getJsonData(order) {
+        return JSON.stringify({User_Id : order.User_Id,
+        Order_Id : order.Order_Id})
+    }
 
     _renderItem = ({item}) => (
-        console.log('order +++++ ',this.state.order),
+        console.log('order +++++ ',item),
         <DishItem
-          name={item.name}
-          price={item.price}
-          specialNotes={item.special_notes}
+          name={item.Dish_Name}
+          price={item.Rate}
+          specialNotes={item.Quantity}
           navigation={this.props.navigation}
         />
-      )
+      );
 
     _keyExtractor = (item, index) => item.id;
 
     render() {
         return (
             <View style={styles.container}>
-            
                 <FlatList 
-                    data={this.props.navigation.state.params.dishes}
+                    data={this.state.order.Dishes}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
                 />
@@ -54,15 +59,8 @@ export default class DeliveryDetails extends Component {
                         <Button
                             position="absolute"
                             color="green"
-                            title="YES"
-                            onPress={() => this.props.navigation.goBack()}
-                        />
-
-                        <Button
-                            position="absolute"
-                            color="red"
-                            title="NO"
-                            onPress={() => this.props.navigation.goBack()}
+                            title="Delivered"
+                            onPress={() => this.props.navigation.navigate('Rewards')}
                         />
                 </View>
            

@@ -40,7 +40,7 @@ export default class Menu extends Component {
             image={item.Image_Url}
             price={item.Price}
         />
-    )
+    );
 
     _keyExtractor = (item, index) => item.id;
 

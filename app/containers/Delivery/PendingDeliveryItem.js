@@ -25,14 +25,16 @@ export default class PendingDeliveryItem extends Component {
             <View>
                 {/* Details */}
                     <View style={styles.innerDetails}>
+                        <Text style={styles.title}>{"Restaurant"}</Text>
+                        <Text style={styles.subtitle}>{this.props.restaurantName}</Text>
                         <Text style={styles.title}>{"PICKUP"}</Text>
-                        <Text style={styles.subtitle}>{this.props.pickupLocation}</Text>   
+                        <Text style={styles.subtitle}>{this.props.pickupLocation}</Text>
                         <Text style={styles.title}>{"DROP"}</Text> 
                         <Text style={styles.subtitle}>{this.props.dropLocation}</Text>
                             <View style={styles.lastRow}>
                                 <View style={styles.priceContainer}>
                                     <Text style={styles.primary}>{this.props.totalCost}</Text>
-                                    <Text style={styles.secondary}>99</Text>
+                                    <Text style={styles.secondary}>00</Text>
                                 </View>
 
                                 <View style={styles.button}>

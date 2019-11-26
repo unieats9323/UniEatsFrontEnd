@@ -21,6 +21,8 @@ export default class DishItem extends Component {
                         <Text style={styles.subtitle}>{this.props.name}</Text>   
                         <Text style={styles.title}>{"Price"}</Text> 
                         <Text style={styles.subtitle}>{"$" + this.props.price}</Text>
+                        <Text style={styles.title}>{"Quantity"}</Text>
+                        <Text style={styles.subtitle}>{this.props.specialNotes}</Text>
                         <Text style={styles.title}>{"Special Notes"}</Text>                 
                         <Text style={styles.subtitle}>{this.props.specialNotes}</Text>                    
                     </View>                          
