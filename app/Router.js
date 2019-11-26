@@ -25,7 +25,9 @@ const Router = createStackNavigator({
 const HomeTab = createStackNavigator({
     Home: {screen: Restaurants},
     Menu: {screen: Menu},
-    Cart: {screen: Cart}
+    Cart: {screen: Cart},
+    PendingDeliveries: {screen: PendingDeliveries},
+    DeliveryDetails: {screen: DeliveryDetails}
 })
 
 const ProfileTab = createStackNavigator({
