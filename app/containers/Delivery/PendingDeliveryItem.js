@@ -24,7 +24,6 @@ export default class PendingDeliveryItem extends Component {
         return(  
             <View>
                 {/* Details */}
-                 <TouchableOpacity style={styles.card} key={this.props.order_id}  onPress={() => this.navigateToScreen(this.props.dishes)}>
                     <View style={styles.innerDetails}>
                         <Text style={styles.title}>{"PICKUP"}</Text>
                         <Text style={styles.subtitle}>{this.props.pickupLocation}</Text>   
@@ -44,13 +43,12 @@ export default class PendingDeliveryItem extends Component {
                                         fontSize: 500,
                                         fontWeight: "bold"
                                     }]}
-                                    onPress={() => this.props.navigation.navigate('DeliveryDetails',{order_id : this.props.totalCost})}
+                                    onPress={() => this.props.navigation.navigate('DeliveryDetails',{order : this.props.order})}
                                     />
                                 </View>
                             </View> 
 
                     </View>                          
-                </TouchableOpacity>   
                 {/* Button */}
               
             </View>

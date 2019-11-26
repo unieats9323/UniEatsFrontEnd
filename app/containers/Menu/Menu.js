@@ -30,7 +30,6 @@ export default class Menu extends Component {
                 menu : response
 
             });
-            console.log(data)
         })
     }
 

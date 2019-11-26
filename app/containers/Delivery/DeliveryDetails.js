@@ -15,20 +15,21 @@ export default class DeliveryDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
-            orderId : this.props.navigation.state.params.order_id
+            order : this.props.navigation.state.params.order
         }
     }
 
-    componentDidMount(){
-        console.log(this.state.orderId);
-        services.getDeliveryDetails(this.state.orderId).then(response => {
-            this.setState({
-                data: response
-            })
-        })
-    }
+    // componentDidMount(){
+    //     console.log(this.state.orderId);
+    //     services.getDeliveryDetails(this.state.orderId).then(response => {
+    //         this.setState({
+    //             data: response
+    //         })
+    //     })
+    // }
 
     _renderItem = ({item}) => (
+        console.log('order +++++ ',this.state.order),
         <DishItem
           name={item.name}
           price={item.price}

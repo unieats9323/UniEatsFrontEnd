@@ -14,17 +14,24 @@ var services = {
     async getMenu(id) {
         const url = API.MENU_API + id;
         return this.getNetworkItem(url).then(response => {
-            console.log(url)
-            console.log(response)
             return response
         }).catch(error => {
             console.log(error)
         })
     },
     async getDeliveryDetails(id) {
-        console.log("resto_id :", id);
         const url = API.DELIVERY_API;
         return this.getNetworkItem(url).then(response => {
+            return response
+        }).catch(error => {
+            console.log(error)
+        })
+    },
+    async getOpenOrders() {
+
+        const url = API.OPEN_ORDERS_API;
+        return this.getNetworkItem(url).then(response => {
+            console.log(response);
             return response
         }).catch(error => {
             console.log(error)

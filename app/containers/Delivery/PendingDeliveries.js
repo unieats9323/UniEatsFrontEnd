@@ -17,24 +17,26 @@ export default class PendingDelivery extends Component {
             data: []
         }
     }
-    
-    componentDidMount(){
-        services.getDeliveryDetails("").then(response => {
+
+    componentDidMount() {
+        services.getOpenOrders().then(response => {
             this.setState({
                 data: response
             })
-        })            
+        })
     }
-    
+
     _renderItem = ({item}) => (
         <PendingDeliveryItem
-          dishes={item.dishes}
-          pickupLocation={item.pickup_location}
-          totalCost={item.total_cost}
-          dropLocation={item.location}
-          navigation={this.props.navigation}
+            order = {item}
+            orderId={item.Order_Id}
+            dishes={item.dishes}
+            pickupLocation={item.Pickup_Location}
+            totalCost={item.Total_Price}
+            dropLocation={item.Delivery_Location}
+            navigation={this.props.navigation}
         />
-      )
+    );
 
     _keyExtractor = (item, index) => item.order_id;
 
@@ -47,35 +49,35 @@ export default class PendingDelivery extends Component {
                     <Icon style={styles.search} name="search"/>
                 </View> */}
                 <Text style={styles.title}>AVAILABLE ORDERS</Text>
-                <FlatList 
-                    style = {{
+                <FlatList
+                    style={{
                         margin: 10,
                     }}
-                    data={this.state.data.pending_orders}
+                    data={this.state.data.Orders}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
                 />
-           
-            </View>            
-        );        
+
+            </View>
+        );
     }
 }
 
 
 const styles = StyleSheet.create({
-    
+
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      flexDirection: 'column',
-      //alignItems: 'center',
-      backgroundColor: '#FEC102',
+        flex: 1,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        //alignItems: 'center',
+        backgroundColor: '#FEC102',
     },
     header: {
         flexDirection: 'row'
     },
     title: {
-      
+
         fontSize: 30,
         color: 'black',
         fontWeight: 'bold',
