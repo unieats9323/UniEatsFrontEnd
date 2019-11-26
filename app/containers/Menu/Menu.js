@@ -5,13 +5,16 @@ import {
     View,
     Image,
     FlatList,
-    VirtualizedList
+    VirtualizedList,
+    Button
 } from 'react-native'
 
 import MenuItem from './MenuItem';
 import services from '../../library/services/services'
 import {Icon} from 'react-native-elements'
 import {ScrollView} from 'react-native-gesture-handler';
+import colors from 'assets/colors'
+
 
 
 export default class Menu extends Component {
@@ -63,6 +66,7 @@ export default class Menu extends Component {
                 {this.state.menu.map((item, index) => {
                     return (
                         <MenuItem
+                            item={item}
                             dishId={item.Dish_Id}
                             name={item.Dish_Name}
                             image={item.Image_Url}
@@ -70,6 +74,15 @@ export default class Menu extends Component {
                         />
                     )
                 })}
+
+            <View styles={styles.button} style={[{ width: "40%", margin: 10, backgroundColor: "#FEC102" }]}>
+
+            <Button
+                color="black"
+                title="CART"
+                onPress={() => this.props.navigation.navigate('Cart', {restaurant : this.state.restaurant.Restaurant_Id})}
+                />
+            </View>  
 
                 { /*<ScrollView
                     data={this.state.data.menu}
@@ -158,5 +171,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         letterSpacing: 3,
         color: 'white',
+    },
+    button: {        
+        flex: 1,
+        paddingBottom: 20,
+        backgroundColor: colors.app_yellow,
+      
+        alignSelf: 'flex-end'
     }
 });
