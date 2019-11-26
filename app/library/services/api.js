@@ -4,5 +4,7 @@ module.exports  = {
     //MENU_API: "https://jsonblob.com/api/jsonBlob/ff00ce18-f89c-11e9-9fcf-b90117805506",
     //DELIVERY_API: "https://jsonblob.com/api/jsonBlob/2aa3191d-0dcd-11ea-a302-e31e11407c34",
     MENU_API:"http://35.231.145.36/restaurants/",
-    OPEN_ORDERS_API : "http://34.73.106.129/open_orders"
+    OPEN_ORDERS_API : "http://34.73.106.129/open_orders",
+    SEND_ORDERS_API: "http://34.73.106.129/order",
+    PAYMENT_API: "http://34.73.159.31/payment"
 };

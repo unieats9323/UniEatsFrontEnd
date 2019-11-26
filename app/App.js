@@ -27,12 +27,17 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import AppContainer from './Router'
+import { Provider } from 'react-redux'
+import store from './store/Store'
 
 
 export default class App extends Component {  
   render() {
     return (   
-      <AppContainer style={styles.main}/>  
+      <Provider store={store}>
+        <AppContainer style={styles.main}/> 
+      </Provider>
+       
     );
        
   }

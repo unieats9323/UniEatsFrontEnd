@@ -7,6 +7,7 @@ import Menu from './containers/Menu/Menu'
 import ProfileSwitcher from './containers/ProfileSwitcher'
 import PendingDeliveries from './containers/Delivery/PendingDeliveries'
 import DeliveryDetails from './containers/Delivery/DeliveryDetails'
+import Cart from './containers/Cart/Cart'
 //import createBottomTabNavigator from './containers/BottomNavigation/BottomNavigation';
 
 import { createBottomTabNavigator } from 'react-navigation-tabs'
@@ -24,15 +25,20 @@ const Router = createStackNavigator({
 const HomeTab = createStackNavigator({
     Home: {screen: Restaurants},
     Menu: {screen: Menu},
+    Cart: {screen: Cart}
 })
 
 const ProfileTab = createStackNavigator({
     Profile: {screen: ProfileSwitcher},
 })
 
+const CartTab = createStackNavigator({
+    Cart: {screen: Cart},
+})
+
 const TabNavigator = createBottomTabNavigator({
     Profile: ProfileTab,
-    Home: HomeTab    
+    Home: HomeTab
   });
 
 const AppContainer = createAppContainer(TabNavigator)
