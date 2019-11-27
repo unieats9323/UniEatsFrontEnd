@@ -18,6 +18,7 @@ import colors from 'assets/colors'
 export default class Cart extends Component {
     
     constructor(props) {
+
        
         cart = store.getState().menu;
 
@@ -66,6 +67,7 @@ export default class Cart extends Component {
     }
 
     confirmOrder(cart, restaurant){
+        store.dispatch({type: 'CLEAR_CART'})
         console.log(restaurant)
         order = services.processOrders(cart, restaurant)
         text = "YOUR ORDER IS CONFRIMED"

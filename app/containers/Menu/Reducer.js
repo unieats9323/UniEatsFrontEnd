@@ -28,6 +28,9 @@ export default (state = initState, action) => {
                 addedItem.Quantity = 1
                 return {...state, cart_items: [...state.cart_items, addedItem]}
             } 
+        case 'CLEAR_CART':
+            //return state
+            return {...state, cart_items: []}
         default:
             return state
     }
