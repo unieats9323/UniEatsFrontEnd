@@ -9,7 +9,7 @@ import {
 import { Avatar, Badge, Icon } from 'react-native-elements'
 import colors from 'assets/colors'
 import Price from 'library/components/Price'
-import store from '../../store/Store'
+import store from 'store/Store'
 
 
 export default class MenuItem extends Component {

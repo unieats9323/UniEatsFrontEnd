@@ -60,12 +60,17 @@ export default class DeliveryDetails extends Component {
                             position="absolute"
                             color="green"
                             title="Delivered"
-                            onPress={() => this.props.navigation.navigate('Rewards')}
+                            onPress={() => this.deliveryComplete(this.state.order.Order_Id)}Order_Id
                         />
                 </View>
            
             </View>            
         );        
+    }
+
+    deliveryComplete = function(id){
+        services.delivered(id)
+        this.props.navigation.navigate('OrderConfirmation', {text: "THANKS FOR COMPLETING THE ORDER"})
     }
 }
 

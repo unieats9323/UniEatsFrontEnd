@@ -8,16 +8,7 @@ const initState = {
         "type": "Cuban Tapas And Wine Bar",
         "location": "Lower campus"
     },
-    cart_items: [   
-        {
-        "Dish_Id": "123",
-        "Dish_Name": "Grilled Chicken Tacos",
-        "Image_Url": "https://assets.epicurious.com/photos/54af451f4074bdfd06837f8c/master/pass/51175340_grilled-chicken-tacos_1x1.jpg",
-        "Price": "14.9",
-        "Quantity": 1
-    }
-]
-     
+    cart_items: []     
        
   
 }

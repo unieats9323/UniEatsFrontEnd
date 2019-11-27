@@ -9,6 +9,7 @@ import PendingDeliveries from './containers/Delivery/PendingDeliveries'
 import DeliveryDetails from './containers/Delivery/DeliveryDetails'
 import Rewards from './containers/Delivery/Rewards'
 import Cart from './containers/Cart/Cart'
+import OrderConfirmation from './containers/Confirmation/OrderConfirmation'
 //import createBottomTabNavigator from './containers/BottomNavigation/BottomNavigation';
 
 import { createBottomTabNavigator } from 'react-navigation-tabs'
@@ -29,10 +30,12 @@ const HomeTab = createStackNavigator({
     Menu: {screen: Menu},
     Cart: {screen: Cart},
     PendingDeliveries: {screen: PendingDeliveries},
-    DeliveryDetails: {screen: DeliveryDetails}
+    DeliveryDetails: {screen: DeliveryDetails},
+    OrderConfirmation: {screen: OrderConfirmation},
 })
 
 const ProfileTab = createStackNavigator({
+    
     Profile: {screen: ProfileSwitcher},
 })
 

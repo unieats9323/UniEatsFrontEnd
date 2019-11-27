@@ -49,7 +49,7 @@ var services = {
             })
         }
     },
-    processOrders(cart, restaurant){
+    async processOrders(cart, restaurant){
 
         //cart = JSON.stringify(cart)
         order = JSON.stringify({
@@ -66,24 +66,29 @@ var services = {
             Type: "Debit",
             Reason: "Payment"
         })
-        console.log('Orders')
-        console.log(payment)
         //this.sendOrders(order)
-        this.payment(payment, cart, restaurant)
+        return this.payment(payment, cart, restaurant)
 
     },
     async payment(payment, cart, restaurant){
         const url = API.PAYMENT_API;
-        return this.postNetworkItemStringResponse(url, payment).then(response => {
+        return this.postNetworkItemJSON(url, payment).then(response => {
             console.log("payment")
             console.log(response);
+            prices = cart.cart_items.map(item => item.Price * item.Quantity)
+
+            const sumPrice = function(accumulator, current) {
+                const newSum = accumulator + (current.Price * current.Quantity)
+                return newSum
+            }
+            total = cart.cart_items.reduce(sumPrice, 0)
             order = JSON.stringify({
-                User_Id: 1235,
+                User_Id: "1235",
                 Restaurant_Id: restaurant,
                 Dishes: cart.cart_items,
                 Delivery_Location: "K17",
-                Total_Price: 17,
-                Payment_Sequence: response
+                Total_Price: total,
+                Payment_Sequence: response.Payment_Sequence
             })
             this.sendOrders(order)
         }).catch(error => {
@@ -91,9 +96,10 @@ var services = {
         })
     },
     async sendOrders(jsondata){
+        console.log('order')
         console.log(jsondata)
         const url = API.SEND_ORDERS_API;
-        return this.postNetworkItemStringResponse(url, jsondata).then(response => {
+        return this.postNetworkItemJSON(url, jsondata).then(response => {
             console.log("order")
             console.log(response);
             return response
@@ -101,7 +107,17 @@ var services = {
             console.log(error)
         })
     },
+    async delivered(id){
+        const url = API.DELIVERY_API+"/"+id;
+        return this.postNetworkItemJSON(url, "{}").then(response => {
+            console.log("delivery")
+            console.log(response);
+            return response
+        }).catch(error => {
+            console.log(error)
+        })
 
+    },
     async getNetworkItem(url) {
         return fetch(url,
             {
@@ -109,8 +125,7 @@ var services = {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                },
-                body: JSONdata
+                }
             })
             .then(res => res.json())
             .then((response) => {
@@ -129,6 +144,24 @@ var services = {
             },
             body: jsonData,
         })
+    },
+    async postNetworkItemJSON(url, jsonData) {
+        return fetch(url,
+            {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: jsonData,
+            })
+            .then(res => res.json())
+            .then((response) => {
+                return response;
+            })
+            .catch(error => {
+                console.warn(error)
+            })
     }
 }
 

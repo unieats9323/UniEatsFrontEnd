@@ -7,7 +7,6 @@ import {
     TouchableOpacity
 } from 'react-native'
 import {Icon} from 'react-native-elements'
-import { PendingDeliveries } from '../containers/Delivery/PendingDeliveries'
 //import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
@@ -21,7 +20,7 @@ export default class OrderConfirmation extends Component {
                     <TouchableOpacity  style={styles.icon}  onPress={() => this.props.navigation.navigate('Home')}>
                         <Image style={styles.iconImage} rounded source={require('assets/img/order_food.jpeg')} ></Image>                         
                     </TouchableOpacity>
-                    <Text style={styles.title}>YOUR ORDER IS CONFIRMED</Text>
+                    <Text style={styles.title}>{this.props.navigation.state.params.text}</Text>
                 </View>
                 
                
@@ -32,11 +31,13 @@ export default class OrderConfirmation extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,        
-        flexDirection: "column",
+        flex: 1,    
+       
+       
     },
     button: {
         flex: 1,
+        paddingTop: 50,
         alignSelf: 'center',
         flexDirection: "column",
     },
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     },
     title: {
         flex: 1, 
-        paddingTop: 50,
+        paddingTop: 0,
         fontSize: 20,
         fontWeight: "bold",
         alignSelf: 'center',

@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import RestaurantItem from '../Restaurants/RestaurantItem';
 import services from 'library/services/services';
 import CartItem from './CartItem';
-import store from '../../store/Store'
+import store from 'store/Store'
 import colors from 'assets/colors'
 
 
@@ -28,7 +28,7 @@ export default class Cart extends Component {
         }
     }
     componentDidMount(){
-        console.log(this.props.restaurant)
+        console.log(this.props.navigation.state.params.restaurant)
     }
 
    
@@ -58,7 +58,7 @@ export default class Cart extends Component {
             <Button
                 color="black"
                 title="CONFIRM ORDER"
-                onPress={() => this.confirmOrder(cart, this.props.restaurant)}
+                onPress={() => this.confirmOrder(cart, this.props.navigation.state.params.restaurant)}
                 />
             </View>       
         </View>         
@@ -67,7 +67,9 @@ export default class Cart extends Component {
 
     confirmOrder(cart, restaurant){
         console.log(restaurant)
-        services.processOrders(cart, restaurant)
+        order = services.processOrders(cart, restaurant)
+        text = "YOUR ORDER IS CONFRIMED #" + order
+        this.props.navigation.navigate('OrderConfirmation', {text: text})
         //console.log(cart)
     
     }
