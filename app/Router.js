@@ -37,10 +37,16 @@ const HomeTab = createStackNavigator({
 const ProfileTab = createStackNavigator({
     
     Profile: {screen: ProfileSwitcher},
+    //Home: {screen: Restaurants},
+
+   // PendingDeliveries: {screen: PendingDeliveries}
+
 })
 
 const CartTab = createStackNavigator({
     Cart: {screen: Cart},
+        PendingDeliveries: {screen: PendingDeliveries},
+
 })
 
 const TabNavigator = createBottomTabNavigator({

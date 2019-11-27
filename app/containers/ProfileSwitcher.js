@@ -25,6 +25,7 @@ export default class ProfileSwitcher extends Component {
                 </View>
                 <View style={styles.button}> 
                     <TouchableOpacity  style={styles.icon} onPress={() => this.props.navigation.navigate('PendingDeliveries')}>
+                   
                         <Image style={styles.iconImage} rounded source={require('assets/img/deliver_food.jpeg')} ></Image>
                     </TouchableOpacity>                   
                     <Text style={styles.title}>DELIVER</Text>
@@ -49,15 +50,15 @@ const styles = StyleSheet.create({
         flex:3,
     },
     iconImage: {
-        borderRadius: 150,
+        borderRadius: 100,
         overflow: 'hidden',
         alignSelf: "center",
-        width: 300,
-        height: 300,  
+        width: 200,
+        height: 200,  
     },
     title: {
         flex: 1, 
-        paddingTop: 200,
+        paddingTop: 50,
         fontSize: 20,
         fontWeight: "bold",
         alignSelf: 'center',

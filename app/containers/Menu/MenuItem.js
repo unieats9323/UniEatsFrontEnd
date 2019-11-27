@@ -11,8 +11,14 @@ import colors from 'assets/colors'
 import Price from 'library/components/Price'
 import store from 'store/Store'
 
-
 export default class MenuItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+                counter: 0
+        }
+    }
+   
     render() {
         return(
             <View style={styles.card} key={this.props.id}  >
@@ -25,11 +31,12 @@ export default class MenuItem extends Component {
                         style={styles.image}
                     />
 
-                    <Badge
+                    {this.state.counter > 0 && <Badge
                         status="success"
                         containerStyle={{ position: 'absolute', top: 10, right: 10 }}
-                        value="2"
-                    />
+                        value={this.state.counter}
+                        hidden = "true"
+                    />}
                 </View>
                 <View style={styles.details}>
                     <Text style={styles.title}>{this.props.name}</Text>
@@ -56,6 +63,9 @@ export default class MenuItem extends Component {
     }
 
     addItem(item) {
+        count = this.state.counter + 1
+        this.setState({counter: count})
+
         store.dispatch({type: 'ADD_ITEM_TO_CART', payload: item})
     }
     removeItem(item) {
@@ -117,6 +127,9 @@ const styles = StyleSheet.create({
         backgroundColor: colors.app_yellow,
       
         alignSelf: 'flex-end'
+    },
+    badge: {
+        display: 'none'
     }
     
    

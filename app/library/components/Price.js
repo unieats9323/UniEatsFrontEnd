@@ -19,13 +19,27 @@ export default class Price extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.primary}>{this.props.price}</Text>
-                <Text style={styles.secondary}>99</Text>
+                <Text style={styles.primary}>{this.getDollar(this.props.price)}</Text>
+                <Text style={styles.secondary}>{this.getCent(this.props.price)}</Text>
             </View>
            
         );
     }
- 
+
+    getDollar(price){
+        price = (price+"").split(".")
+        dollar = price[0] + ""
+        return dollar
+    }
+
+    getCent(price){
+        price = (price+"").split(".")
+        cent = "00"
+        if (price[1]) {
+            cent = price[1] + ""
+        }
+        return cent
+    }
 }
 
 

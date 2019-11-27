@@ -68,7 +68,7 @@ export default class Cart extends Component {
     confirmOrder(cart, restaurant){
         console.log(restaurant)
         order = services.processOrders(cart, restaurant)
-        text = "YOUR ORDER IS CONFRIMED #" + order
+        text = "YOUR ORDER IS CONFRIMED"
         this.props.navigation.navigate('OrderConfirmation', {text: text})
         //console.log(cart)
     
