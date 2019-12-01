@@ -1,3 +1,7 @@
+/**
+ * This screen is called once the deliver is done successfully
+ * */
+
 import React, {Component} from 'react';
 import {
     Text,

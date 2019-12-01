@@ -13,7 +13,9 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import colors from 'assets/colors'
 import Price from 'library/components/Price'
 
-
+/**
+ * Used to created a card component of each open order card.
+ * */
 export default class PendingDeliveryItem extends Component {
 
     navigateToScreen(dishes) {

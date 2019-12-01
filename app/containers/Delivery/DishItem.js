@@ -1,16 +1,14 @@
+/**
+ * Responsible for making each cards of dishes.
+ * **/
 import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
     Text, 
-    Image,
-    ImageBackground,
     TouchableOpacity
 } from 'react-native'
-import { Card, Icon, Rating} from 'react-native-elements'
 import { Menu } from '../Menu/Menu'
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import colors from 'assets/colors'
 
 export default class DishItem extends Component {
     render() {

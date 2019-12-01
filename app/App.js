@@ -1,29 +1,15 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
+ * Start of the application
  */
 
 import React, {Component} from 'react';
-import img from "./assets/download.jpeg";
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image
+  StyleSheet
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
+
 } from 'react-native/Libraries/NewAppScreen';
 
 import AppContainer from './Router'

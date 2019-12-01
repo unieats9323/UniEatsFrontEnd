@@ -1,7 +1,10 @@
+/**
+ * Once the order is accepted, this class calls the order-accepted API and gives out all the delivery
+ * details of the accepted order.
+ * **/
 import React, {Component} from 'react';
 import {
     StyleSheet,
-    Text,
     View,
     x,
     FlatList,
@@ -21,9 +24,7 @@ export default class DeliveryDetails extends Component {
         }
     }
 
-
     componentDidMount(){
-        console.log('Order details +++++ ',this.state.order);
         var jsonData;
         jsonData = DeliveryDetails.getJsonData(this.state.order);
         services.acceptOrders(jsonData)

@@ -1,3 +1,9 @@
+/***
+ *This file contains the information of all the screen.
+ * more like the manifest file in Android.
+ * All the navigation between screen happens via Router.js
+ * This file also has the router information about the bottom navigation bar.
+ **/
 import {createStackNavigator} from 'react-navigation-stack'
 import {createAppContainer} from 'react-navigation';
 
@@ -10,7 +16,6 @@ import DeliveryDetails from './containers/Delivery/DeliveryDetails'
 import Rewards from './containers/Delivery/Rewards'
 import Cart from './containers/Cart/Cart'
 import OrderConfirmation from './containers/Confirmation/OrderConfirmation'
-//import createBottomTabNavigator from './containers/BottomNavigation/BottomNavigation';
 
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 

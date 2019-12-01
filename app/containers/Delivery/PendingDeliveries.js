@@ -1,3 +1,7 @@
+/**
+* This file is executed when delivery option is selected from the profileSwitcher.js
+ * This calls the API for all the open orders and accumulates the list.
+* */
 import React, {Component} from 'react';
 import {
     StyleSheet,
