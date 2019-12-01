@@ -1,3 +1,5 @@
+/* Cart screen component */
+
 
 import React, { Component } from 'react';
 import { 

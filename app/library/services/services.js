@@ -1,3 +1,5 @@
+/* Networking services used in app */
+
 var API = require('./api');
 
 var services = {

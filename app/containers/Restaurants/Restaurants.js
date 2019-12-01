@@ -1,3 +1,5 @@
+/* React component for Restaurant Landing page */
+
 import React, {Component} from 'react';
 import {
     StyleSheet,

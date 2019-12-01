@@ -1,3 +1,5 @@
+/* React component for Restaurant card */
+
 import React, { Component } from 'react';
 import {
     StyleSheet,

@@ -1,3 +1,5 @@
+/* Price design component */
+
 import React, { Component } from 'react';
 import { 
     StyleSheet,

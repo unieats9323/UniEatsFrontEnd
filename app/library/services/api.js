@@ -1,3 +1,5 @@
+/* API configuration js */
+
 module.exports  = {
     RESTARANT_API: "http://35.231.145.36/restaurants",
     MENU_API:"http://35.231.145.36/restaurants/",

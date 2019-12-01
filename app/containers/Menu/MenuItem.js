@@ -1,3 +1,6 @@
+/* React component for each Menun Dish card
+*/
+
 import React, { Component } from 'react';
 import {
     StyleSheet,

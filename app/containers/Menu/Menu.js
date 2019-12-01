@@ -1,3 +1,7 @@
+/*
+Menu Screen UI
+*/
+
 import React, {Component} from 'react';
 import {
     StyleSheet,

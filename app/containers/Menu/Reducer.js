@@ -1,4 +1,6 @@
 
+/* Menu reducer for storing cart information */
+
 const initState = {
     cart_active: true,
     active_restaurant: {
