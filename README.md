@@ -77,7 +77,7 @@ If you have recently installed Android Studio, you will likely need to [create a
 
 Click &quot;Next&quot; then &quot;Finish&quot; to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
 
-Connection with the Server
+# Connection with the Server
 
 - If at all the services are being re-deployed by you, please change the API endpoints in the following file.
 --  \UniEats\_FE\app\library\services\api.js
